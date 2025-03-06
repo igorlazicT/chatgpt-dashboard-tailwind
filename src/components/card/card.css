@@ -1,0 +1,7 @@
+li {
+  color: white;
+}
+li::marker {
+  color: white !important;
+  font-size: 20px;
+}

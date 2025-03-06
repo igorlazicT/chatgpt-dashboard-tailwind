@@ -35,7 +35,7 @@ const FreeCard = () => {
 
         <a
           target="blank"
-          className="text-medium mt-7 block rounded-full bg-gradient-to-b from-white/50 to-white/10 py-[12px] px-11 text-center text-base text-white hover:bg-gradient-to-b hover:from-white/40 hover:to-white/5 "
+          className="text-medium mt-7 block rounded-full bg-gradient-to-b from-white/50 to-white/10 px-11 py-[12px] text-center text-base text-white hover:bg-gradient-to-b hover:from-white/40 hover:to-white/5 "
           href="https://horizon-ui.com/pro?ref=live-free-tailwind-react"
         >
           Upgrade to PRO

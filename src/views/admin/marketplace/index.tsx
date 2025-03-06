@@ -1,29 +1,109 @@
 import Banner from "./components/Banner";
-import NFt2 from "assets/img/nfts/Nft2.png";
-import NFt4 from "assets/img/nfts/Nft4.png";
-import NFt3 from "assets/img/nfts/Nft3.png";
-import NFt5 from "assets/img/nfts/Nft5.png";
-import NFt6 from "assets/img/nfts/Nft6.png";
-import avatar1 from "assets/img/avatars/avatar1.png";
-import avatar2 from "assets/img/avatars/avatar2.png";
-import avatar3 from "assets/img/avatars/avatar3.png";
 
-import tableDataTopCreators from "views/admin/marketplace/variables/tableDataTopCreators";
-import HistoryCard from "./components/HistoryCard";
-import TopCreatorTable from "./components/TableTopCreators";
-import NftCard from "components/card/NftCard";
+import ThreeDImg from "assets/img/services/3d.jpg";
+import AnimationImg from "assets/img/services/animation.jpg";
+import ChatImg from "assets/img/services/chat.jpg";
+import ComicImg from "assets/img/services/comics.jpg";
+import GamingImg from "assets/img/services/gaming.jpg";
+import ImageImg from "assets/img/services/image.jpg";
+import MusicImg from "assets/img/services/music.jpg";
+import NarrativeImg from "assets/img/services/narrative.jpg";
 
+import ServiceCard from "components/card/ServiceCard";
+import {
+  MdMovie,
+  MdBook,
+  MdImage,
+  MdBookmark,
+  MdMusicNote,
+  MdGamepad,
+  Md3DRotation,
+  MdChat,
+} from "react-icons/md";
+
+interface ServiceList {
+  title: string;
+  subTitle: string;
+  icon: JSX.Element;
+  list: string[];
+  image: string;
+  bgColor: string;
+}
 const Marketplace = () => {
+  const serviceList: ServiceList[] = [
+    {
+      title: "Image Generation",
+      subTitle: "Create images with Stable Diffusion",
+      icon: <MdImage className="mr-4 h-10 w-10 text-white" />,
+      list: ["High quality generation", "Style control", "Advanced edition"],
+      image: ImageImg,
+      bgColor: "bg-purple-500",
+    },
+    {
+      title: "Narrative",
+      subTitle: "Create stories, scenes and characters",
+      icon: <MdBook className="mr-4 h-10 w-10 text-white" />,
+      list: ["Frame generation", "Character development", "NovelAI style"],
+      image: NarrativeImg,
+      bgColor: "bg-blue-500",
+    },
+    {
+      title: "Comics and Manga",
+      subTitle: "Design and create comics",
+      icon: <MdBookmark className="mr-4 h-10 w-10 text-white" />,
+      list: ["Automatic panels", "Manga styles", "Dynamic dialogues"],
+      image: ComicImg,
+      bgColor: "bg-yellow-500",
+    },
+    {
+      title: "Animation",
+      subTitle: "Create animations and motion graphics",
+      icon: <MdMovie className="mr-4 h-10 w-10 text-white" />,
+      list: ["2D/3D Animation", "Motion capture", "Special effects"],
+      image: AnimationImg,
+      bgColor: "bg-green-500",
+    },
+    {
+      title: "Audio and Voice",
+      subTitle: "Generate synthetic music and voices",
+      icon: <MdMusicNote className="mr-4 h-10 w-10 text-white" />,
+      list: ["Voice synthesis", "Musical composition", "Sound effects"],
+      image: MusicImg,
+      bgColor: "bg-red-500",
+    },
+    {
+      title: "Game Creation",
+      subTitle: "Develop games with AI",
+      icon: <MdGamepad className="mr-4 h-10 w-10 text-white" />,
+      list: ["Level Generation", "Smart NPCs", "Game systems"],
+      image: GamingImg,
+      bgColor: "bg-blue-500",
+    },
+    {
+      title: "3D Creation",
+      subTitle: "Design 3D characters and scenarios",
+      icon: <Md3DRotation className="mr-4 h-10 w-10 text-white" />,
+      list: ["3D modeling", "Texturing", "Automatic rigging"],
+      image: ThreeDImg,
+      bgColor: "bg-cyan-500",
+    },
+    {
+      title: "Chat with Characters",
+      subTitle: "Interact with AI characters",
+      icon: <MdChat className="mr-4 h-10 w-10 text-white" />,
+      list: ["Unique characters", "Contextual memory", "Character.ai style"],
+      image: ChatImg,
+      bgColor: "bg-pink-300",
+    },
+  ];
   return (
-    <div className="mt-3 grid h-full grid-cols-1 gap-5 xl:grid-cols-2 2xl:grid-cols-3">
-      <div className="col-span-1 h-fit w-full xl:col-span-1 2xl:col-span-2">
-        {/* NFt Banner */}
+    <div className="mt-3 grid h-full grid-cols-1 gap-5 xl:grid-cols-1 ">
+      <div className="col-span-2 h-fit w-full  2xl:col-span-4">
         <Banner />
 
-        {/* NFt Header */}
         <div className="mb-4 mt-5 flex flex-col justify-between px-4 md:flex-row md:items-center">
           <h4 className="ml-1 text-2xl font-bold text-navy-700 dark:text-white">
-            Trending NFTs
+            AI Creation Tools
           </h4>
           <ul className="mt-4 flex items-center justify-between md:mt-0 md:justify-center md:!gap-5 2xl:!gap-12">
             <li>
@@ -31,7 +111,7 @@ const Marketplace = () => {
                 className="text-base font-medium text-brand-500 hover:text-brand-500 dark:text-white"
                 href=" "
               >
-                Art
+                <a href=" ">All</a>
               </a>
             </li>
             <li>
@@ -39,7 +119,7 @@ const Marketplace = () => {
                 className="text-base font-medium text-brand-500 hover:text-brand-500 dark:text-white"
                 href=" "
               >
-                Music
+                Illustration
               </a>
             </li>
             <li>
@@ -47,7 +127,7 @@ const Marketplace = () => {
                 className="text-base font-medium text-brand-500 hover:text-brand-500 dark:text-white"
                 href=" "
               >
-                Collection
+                Manga
               </a>
             </li>
             <li>
@@ -55,76 +135,25 @@ const Marketplace = () => {
                 className="text-base font-medium text-brand-500 hover:text-brand-500 dark:text-white"
                 href=" "
               >
-                <a href=" ">Sports</a>
+                Novels
               </a>
             </li>
           </ul>
         </div>
 
-        {/* NFTs trending card */}
         <div className="z-20 grid grid-cols-1 gap-5 md:grid-cols-3">
-          <NftCard
-            bidders={[avatar1, avatar2, avatar3]}
-            title="Abstract Colors"
-            author="Esthera Jackson"
-            price="0.91"
-            image={NFt3}
-          />
-          <NftCard
-            bidders={[avatar1, avatar2, avatar3]}
-            title="ETH AI Brain"
-            author="Nick Wilson"
-            price="0.7"
-            image={NFt2}
-          />
-          <NftCard
-            bidders={[avatar1, avatar2, avatar3]}
-            title="Mesh Gradients"
-            author="Will Smith"
-            price="2.91"
-            image={NFt4}
-          />
+          {serviceList.map((service, key) => (
+            <ServiceCard
+              key={key}
+              list={service.list}
+              title={service.title}
+              author={service.subTitle}
+              image={service.image}
+              bgColor={service.bgColor}
+              icon={service.icon}
+            />
+          ))}
         </div>
-
-        {/* Recenlty Added setion */}
-        <div className="mb-5 mt-5 flex items-center justify-between px-[26px]">
-          <h4 className="text-2xl font-bold text-navy-700 dark:text-white">
-            Recently Added
-          </h4>
-        </div>
-
-        {/* Recently Add NFTs */}
-        <div className="grid grid-cols-1 gap-5 md:grid-cols-3">
-          <NftCard
-            bidders={[avatar1, avatar2, avatar3]}
-            title="Abstract Colors"
-            author="Esthera Jackson"
-            price="0.91"
-            image={NFt4}
-          />
-          <NftCard
-            bidders={[avatar1, avatar2, avatar3]}
-            title="ETH AI Brain"
-            author="Nick Wilson"
-            price="0.7"
-            image={NFt5}
-          />
-          <NftCard
-            bidders={[avatar1, avatar2, avatar3]}
-            title="Mesh Gradients"
-            author="Will Smith"
-            price="2.91"
-            image={NFt6}
-          />
-        </div>
-      </div>
-
-      {/* right side section */}
-
-      <div className="col-span-1 h-full w-full rounded-xl 2xl:col-span-1">
-        <TopCreatorTable tableData={tableDataTopCreators} />
-        <div className="mb-5" />
-        <HistoryCard />
       </div>
     </div>
   );
